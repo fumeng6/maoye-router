@@ -1,0 +1,9 @@
+name = "maoye-router"
+main = "src/index.js"
+compatibility_date = "2026-06-07"
+account_id = "3c1a63205a78331535a4de4102b57e0c"
+
+routes = [
+  { pattern = "maoye.world/*", zone_name = "maoye.world" },
+  { pattern = "www.maoye.world/*", zone_name = "maoye.world" }
+]
