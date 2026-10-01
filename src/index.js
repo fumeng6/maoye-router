@@ -1,7 +1,8 @@
 const ORIGINS = {
   main: 'https://maoye-world.pages.dev',
   blog: 'https://blog-w.pages.dev',
-  yanyun: 'https://maoye666.pages.dev'
+  yanyun: 'https://maoye666.pages.dev',
+  panel: 'https://maoye-panel-simulator.pages.dev'
 }
 
 export default {
@@ -31,6 +32,11 @@ function normalizePath(url) {
     return Response.redirect(url.toString(), 301)
   }
 
+  if (url.pathname === '/panel') {
+    url.pathname = '/panel/'
+    return Response.redirect(url.toString(), 301)
+  }
+
   if (url.pathname === '/yanyun') {
     url.pathname = '/yanyun/'
     return Response.redirect(url.toString(), 301)
@@ -42,6 +48,7 @@ function normalizePath(url) {
 function pickOrigin(pathname) {
   if (pathname === '/blog/' || pathname.startsWith('/blog/')) return ORIGINS.blog
   if (pathname === '/yanyun/' || pathname.startsWith('/yanyun/')) return ORIGINS.yanyun
+  if (pathname === '/panel/' || pathname.startsWith('/panel/')) return ORIGINS.panel
   return ORIGINS.main
 }
 
